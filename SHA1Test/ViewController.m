@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #include "sha1.h"
 
+#import <CommonCrypto/CommonDigest.h>
+
 #define  kNumber  64
 
 @interface ViewController ()
@@ -29,8 +31,12 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
 
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"png"];
     NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
+    //不添加 空数据，计算值不对
+    NSLog(@"System Api file imageData shal:%@",[self  fileSha1:imageData]);
     
     NSMutableData *imageMutableData = [NSMutableData dataWithData:imageData];
+    
+   
     
     
     //如果不够64个字节，就补充000
@@ -46,72 +52,80 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
 
     uint8_t (hashes)[20];
     
+    
+    sha1(hashes, [imageMutableData bytes], [imageMutableData length]);
+    
     NSData *data22 = [NSData dataWithBytes:hashes length:20];
     
-    NSLog(@"data:%@",data22);
+    NSLog(@"O Api file sha1:%@",data22);
     
     
-    //int page = 0;
     
-    char *fpoint = (char *)[imageMutableData bytes];
+    //System Call
+    NSLog(@"System Api file shal1:%@",[self  fileSha1:imageMutableData]);
     
+    NSLog(@"System Api file shal2:%@",[self  fileSha1:imageData]);
     
-    sha1(hashes, fpoint, imageData.length);
+    NSLog(@"System Api file sha256:%@",[self  fileSha256:imageMutableData]);
     
-//    
-//    int  result = imageData.length%kNumber;
-//    
-//    if(imageData.length%kNumber == 0)
-//    {
-//       page = imageData.length/kNumber;
-//    }
-//    else
-//    {
-//       page  = imageData.length/kNumber + 1;
-//    }
-//    
-//    for(int i = 0;i< page;i++)
-//    {
-//        if(i == page - 1)
-//        {
-//            if(result == 0)
-//            {
-//                sha1(hashes, fpoint + i*kNumber, kNumber);
-//               // NSData *data22 = [NSData dataWithBytes:hashes length:20];
-//
-//               // NSLog(@"tmpHashed:%@",data22);
-//            }
-//            else
-//            {
-//                char tailBuffer[64] = {0};
-//                memset(tailBuffer, 0, 64);
-//                strncpy(tailBuffer, fpoint + i*kNumber,result);
-//            
-//               // NSData *tailData = [NSData dataWithBytes:<#(nullable const void *)#> length:<#(NSUInteger)#>]
-//                
-//               // sha1(hashes, tailBuffer, 64);
-//                
-//                sha1(hashes, fpoint + i*kNumber, result);
-//            }
-//        }
-//        else
-//        {
-//            sha1(hashes, fpoint + i*kNumber, kNumber);
-//            NSData *data22 = [NSData dataWithBytes:hashes length:20];
-//
-//           // NSLog(@"tmpHashed:%@",data22);
-//        }
-//        
-//       // NSData *data22 = [NSData dataWithBytes:*hashes length:20];
-//
-//        //NSLog(@"tmpHashed:%@",data22);
-//    
-//    }
-
+    NSLog(@"System Api file sha256:%@",[self  fileSha256:imageData]);
     
     
-
 
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (NSString *) sha1:(NSString *)input
+{
+    const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:input.length];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, data.length, digest);
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    return output;
+}
+
+
+- (NSString *) fileSha1:(NSData *)input
+{
+    NSData *data = [NSData dataWithBytes:input.bytes length:input.length];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, data.length, digest);
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    return output;
+}
+
+- (NSString *) fileSha256:(NSData *)input
+{
+    NSData *data = [NSData dataWithBytes:input.bytes length:input.length];
+    
+    uint8_t digest[CC_SHA256_DIGEST_LENGTH];
+    
+    CC_SHA256(data.bytes, data.length, digest);
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
+    
+    for(int i=0; i<CC_SHA256_DIGEST_LENGTH; i++) {
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    return output;
 }
 @end
