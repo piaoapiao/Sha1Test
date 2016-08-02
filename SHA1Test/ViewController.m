@@ -23,7 +23,7 @@
 void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     SHA1Context context;
     SHA1Reset(&context);
-    SHA1Input(&context, data, size);
+    SHA1Input(&context, data,(unsigned)size);
     SHA1Result(&context, hash);
 }
 
@@ -62,7 +62,7 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     uint8_t (hashes)[20];
     
     
-    sha1(hashes, [imageMutableData bytes], [imageMutableData length]);
+    sha1(hashes, (uint8_t *)[imageMutableData bytes], (size_t)[imageMutableData length]);
     
     NSData *data22 = [NSData dataWithBytes:hashes length:20];
     
@@ -80,6 +80,7 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     NSLog(@"System Api file sha256:%@",[self  fileSha256:imageData]);
     
     
+    NSLog(@"System Api file md5:%@",[self  fileMd5:imageData]);
 
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -92,7 +93,7 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     
-    CC_SHA1(data.bytes, data.length, digest);
+    CC_SHA1(data.bytes,(uint32_t)(data.length), digest);
     
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
     
@@ -110,7 +111,7 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     
-    CC_SHA1(data.bytes, data.length, digest);
+    CC_SHA1(data.bytes, (uint32_t)(data.length), digest);
     
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
     
@@ -127,11 +128,28 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     
     uint8_t digest[CC_SHA256_DIGEST_LENGTH];
     
-    CC_SHA256(data.bytes, data.length, digest);
+    CC_SHA256(data.bytes,(uint32_t)(data.length), digest);
     
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
     
     for(int i=0; i<CC_SHA256_DIGEST_LENGTH; i++) {
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    return output;
+}
+
+- (NSString *) fileMd5:(NSData *)input
+{
+    NSData *data = [NSData dataWithBytes:input.bytes length:input.length];
+    
+    uint8_t digest[CC_MD5_DIGEST_LENGTH];
+    
+    CC_MD5(data.bytes, (uint32_t)(data.length), digest);
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i=0; i<CC_MD5_DIGEST_LENGTH; i++) {
         [output appendFormat:@"%02x", digest[i]];
     }
     

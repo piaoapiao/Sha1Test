@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		461490721D50996100466B1D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4614906E1D50996100466B1D /* .gitignore */; };
 		461490731D50996100466B1D /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 4614906F1D50996100466B1D /* crc32.c */; };
-		461490741D50996100466B1D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 461490711D50996100466B1D /* README.md */; };
 		4683E7B71D4F2FF000E65CD4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7B61D4F2FF000E65CD4 /* main.m */; };
 		4683E7BA1D4F2FF000E65CD4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7B91D4F2FF000E65CD4 /* AppDelegate.m */; };
 		4683E7BD1D4F2FF000E65CD4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7BC1D4F2FF000E65CD4 /* ViewController.m */; };
@@ -24,7 +23,6 @@
 		4614906E1D50996100466B1D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4614906F1D50996100466B1D /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc32.c; sourceTree = "<group>"; };
 		461490701D50996100466B1D /* crc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc32.h; sourceTree = "<group>"; };
-		461490711D50996100466B1D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4683E7B21D4F2FF000E65CD4 /* SHA1Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHA1Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683E7B61D4F2FF000E65CD4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4683E7B81D4F2FF000E65CD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 				4614906E1D50996100466B1D /* .gitignore */,
 				4614906F1D50996100466B1D /* crc32.c */,
 				461490701D50996100466B1D /* crc32.h */,
-				461490711D50996100466B1D /* README.md */,
 			);
 			path = "crc32-master";
 			sourceTree = "<group>";
@@ -178,7 +175,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461490741D50996100466B1D /* README.md in Sources */,
 				4683E7CE1D4F300700E65CD4 /* sha1.c in Sources */,
 				4683E7BD1D4F2FF000E65CD4 /* ViewController.m in Sources */,
 				4683E7BA1D4F2FF000E65CD4 /* AppDelegate.m in Sources */,
