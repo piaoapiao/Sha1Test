@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #include "sha1.h"
 
+#include "crc32.h"
+#include <stdio.h>
+
 #import <CommonCrypto/CommonDigest.h>
 
 #define  kNumber  64
@@ -36,7 +39,13 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     
     NSMutableData *imageMutableData = [NSMutableData dataWithData:imageData];
     
-   
+    FILE *crcFp = fopen([imagePath UTF8String], "r");
+    
+    unsigned long tmp;
+    
+    Crc32_ComputeFile(crcFp,&tmp);
+    
+    NSLog(@"crc32:%lx",tmp);
     
     
     //如果不够64个字节，就补充000
