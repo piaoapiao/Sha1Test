@@ -13,6 +13,8 @@
 		4683E7C01D4F2FF000E65CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683E7BE1D4F2FF000E65CD4 /* Main.storyboard */; };
 		4683E7C21D4F2FF000E65CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4683E7C11D4F2FF000E65CD4 /* Assets.xcassets */; };
 		4683E7C51D4F2FF000E65CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683E7C31D4F2FF000E65CD4 /* LaunchScreen.storyboard */; };
+		4683E7CE1D4F300700E65CD4 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7CC1D4F300700E65CD4 /* sha1.c */; };
+		4683E7D01D4F310100E65CD4 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4683E7CF1D4F310100E65CD4 /* 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		4683E7C11D4F2FF000E65CD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4683E7C41D4F2FF000E65CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4683E7C61D4F2FF000E65CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4683E7CC1D4F300700E65CD4 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		4683E7CD1D4F300700E65CD4 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		4683E7CF1D4F310100E65CD4 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,9 @@
 		4683E7B41D4F2FF000E65CD4 /* SHA1Test */ = {
 			isa = PBXGroup;
 			children = (
+				4683E7CF1D4F310100E65CD4 /* 1.png */,
+				4683E7CC1D4F300700E65CD4 /* sha1.c */,
+				4683E7CD1D4F300700E65CD4 /* sha1.h */,
 				4683E7B81D4F2FF000E65CD4 /* AppDelegate.h */,
 				4683E7B91D4F2FF000E65CD4 /* AppDelegate.m */,
 				4683E7BB1D4F2FF000E65CD4 /* ViewController.h */,
@@ -137,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4683E7C51D4F2FF000E65CD4 /* LaunchScreen.storyboard in Resources */,
+				4683E7D01D4F310100E65CD4 /* 1.png in Resources */,
 				4683E7C21D4F2FF000E65CD4 /* Assets.xcassets in Resources */,
 				4683E7C01D4F2FF000E65CD4 /* Main.storyboard in Resources */,
 			);
@@ -149,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4683E7CE1D4F300700E65CD4 /* sha1.c in Sources */,
 				4683E7BD1D4F2FF000E65CD4 /* ViewController.m in Sources */,
 				4683E7BA1D4F2FF000E65CD4 /* AppDelegate.m in Sources */,
 				4683E7B71D4F2FF000E65CD4 /* main.m in Sources */,
