@@ -226,18 +226,14 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
         NSLog(@"error:%@",error);
     }
 
-    NSLog(@"pubkey:%@ len:%ld",pubkey,pubkey.length);
+//    NSLog(@"pubkey:%@ len:%ld",pubkey,pubkey.length);
+//
+//    NSLog(@"privkey:%@ len:%ld",privkey,privkey.length);
 
-    NSLog(@"privkey:%@ len:%ld",privkey,privkey.length);
+	NSString *originString = @"0";
 
-	NSString *originString = @"123456";
-//	for(int i=0; i<4; i++){
-//		originString = [originString stringByAppendingFormat:@" %@", originString];
-//	}
 	NSString *encWithPubKey;
 	NSString *decWithPrivKey;
-	NSString *encWithPrivKey;
-	NSString *decWithPublicKey;
 	
 	NSLog(@"Original string(%d): %@", (int)originString.length, originString);
 	
@@ -247,6 +243,17 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
 	// Demo: decrypt with private key
 	decWithPrivKey = [RSA decryptString:encWithPubKey privateKey:privkey];
 	NSLog(@"Decrypted with private key: %@", decWithPrivKey);
+    
+    
+    //还未
+
+//    encWithPrivKey  = [RSA encryptData:originString privateKey:privkey];
+//    NSLog(@"encWithPrivKey:%@",encWithPrivKey);
+    
+//    decWithPublicKey = [RSA decryptData:encWithPrivKey publicKey:privkey];
+//    NSLog(@"decWithPublicKey:%@",decWithPublicKey);
+    
+	
 	
 }
 
