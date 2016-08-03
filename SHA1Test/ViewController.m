@@ -36,23 +36,6 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     SHA1Result(&context, hash);
 }
 
-//- (NSString *) sha1:(NSString *)input
-//{
-//    const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
-//    NSData *data = [NSData dataWithBytes:cstr length:input.length];
-//    
-//    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
-//    
-//    CC_SHA1(data.bytes,(uint32_t)(data.length), digest);
-//    
-//    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
-//    
-//    for(int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
-//        [output appendFormat:@"%02x", digest[i]];
-//    }
-//    
-//    return output;
-//}
 
 
 - (NSString *) fileSha1:(NSData *)input
@@ -115,7 +98,13 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     
     [self  testRsa];
     
+    [self testSha];
 
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)testSha
+{
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"png"];
     NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
     //不添加 空数据，计算值不对
@@ -165,12 +154,7 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     
     
     NSLog(@"System Api file md5:%@",[self  fileMd5:imageData]);
-    
-
-    // Do any additional setup after loading the view, typically from a nib.
 }
-
-
 
 -(void)testAes
 {
@@ -230,7 +214,7 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
 //
 //    NSLog(@"privkey:%@ len:%ld",privkey,privkey.length);
 
-	NSString *originString = @"0";
+	NSString *originString = @"013456789012312311230134567890131231123-----";
 
 	NSString *encWithPubKey;
 	NSString *decWithPrivKey;
