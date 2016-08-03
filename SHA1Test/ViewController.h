@@ -10,6 +10,12 @@
 
 @interface ViewController : UIViewController
 
+- (NSString *) fileSha1:(NSData *)input;
 
+- (NSString *) fileMd5:(NSData *)input;
+
+- (NSString *) fileSha256:(NSData *)input;
+
+- (NSString *) sha1:(NSString *)input;
 @end
 
