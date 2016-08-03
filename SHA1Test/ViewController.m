@@ -16,6 +16,8 @@
 #import <CommonCrypto/CommonCryptor.h>
 #import "NSdata+Encryption.h"
 
+#import "RSA.h"
+
 #define  kNumber  64
 
 @interface ViewController ()
@@ -109,7 +111,9 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self  testEncryptData];
+    [self  testAes];
+    
+    [self  testRsa];
     
 
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"png"];
@@ -162,20 +166,15 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
     
     NSLog(@"System Api file md5:%@",[self  fileMd5:imageData]);
     
-    
-    
-    NSData *encryptData = [imageData AES256EncryptWithKey:@"123456789"];
-    
-    //[
 
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 
 
--(void)testEncryptData
+-(void)testAes
 {
-    NSString *aesKey = @"3243243243243243";
+    NSString *aesKey = @"3243243243243243骨偶哦";
 
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"png"];
     NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
@@ -203,8 +202,53 @@ void sha1(uint8_t *hash, uint8_t *data, size_t size) {
 
 
 
+-(void)testRsa
+{
+    NSString *publicFilePath = [[NSBundle mainBundle] pathForResource:@"rsa_public_key" ofType:@"pem"];
 
 
+    NSString *privateFilePath = [[NSBundle mainBundle] pathForResource:@"rsa_private_key" ofType:@"pem"];
+
+    NSError *error;
+
+
+    NSString *pubkey = [NSString stringWithContentsOfFile:publicFilePath encoding:NSUTF8StringEncoding error:&error];
+
+    if(error)
+    {
+        NSLog(@"error:%@",error);
+    }
+
+    NSString *privkey = [NSString stringWithContentsOfFile:privateFilePath encoding:NSUTF8StringEncoding error:&error];
+
+        if(error)
+    {
+        NSLog(@"error:%@",error);
+    }
+
+    NSLog(@"pubkey:%@ len:%ld",pubkey,pubkey.length);
+
+    NSLog(@"privkey:%@ len:%ld",privkey,privkey.length);
+
+	NSString *originString = @"123456";
+//	for(int i=0; i<4; i++){
+//		originString = [originString stringByAppendingFormat:@" %@", originString];
+//	}
+	NSString *encWithPubKey;
+	NSString *decWithPrivKey;
+	NSString *encWithPrivKey;
+	NSString *decWithPublicKey;
+	
+	NSLog(@"Original string(%d): %@", (int)originString.length, originString);
+	
+	// Demo: encrypt with public key
+	encWithPubKey = [RSA encryptString:originString publicKey:pubkey];
+	NSLog(@"Enctypted with public key: %@", encWithPubKey);
+	// Demo: decrypt with private key
+	decWithPrivKey = [RSA decryptString:encWithPubKey privateKey:privkey];
+	NSLog(@"Decrypted with private key: %@", decWithPrivKey);
+	
+}
 
 
 

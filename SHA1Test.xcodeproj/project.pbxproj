@@ -10,6 +10,9 @@
 		461490721D50996100466B1D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4614906E1D50996100466B1D /* .gitignore */; };
 		461490731D50996100466B1D /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 4614906F1D50996100466B1D /* crc32.c */; };
 		461490771D518C0C00466B1D /* NSdata+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 461490761D518C0C00466B1D /* NSdata+Encryption.m */; };
+		461491381D51F1AF00466B1D /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 461491371D51F1AF00466B1D /* RSA.m */; };
+		4614913C1D51F2C800466B1D /* rsa_private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4614913A1D51F2C800466B1D /* rsa_private_key.pem */; };
+		4614913D1D51F2C800466B1D /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 4614913B1D51F2C800466B1D /* rsa_public_key.pem */; };
 		4683E7B71D4F2FF000E65CD4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7B61D4F2FF000E65CD4 /* main.m */; };
 		4683E7BA1D4F2FF000E65CD4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7B91D4F2FF000E65CD4 /* AppDelegate.m */; };
 		4683E7BD1D4F2FF000E65CD4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7BC1D4F2FF000E65CD4 /* ViewController.m */; };
@@ -26,6 +29,10 @@
 		461490701D50996100466B1D /* crc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc32.h; sourceTree = "<group>"; };
 		461490751D518C0C00466B1D /* NSdata+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSdata+Encryption.h"; sourceTree = "<group>"; };
 		461490761D518C0C00466B1D /* NSdata+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSdata+Encryption.m"; sourceTree = "<group>"; };
+		461491361D51F1AF00466B1D /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		461491371D51F1AF00466B1D /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		4614913A1D51F2C800466B1D /* rsa_private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_private_key.pem; sourceTree = "<group>"; };
+		4614913B1D51F2C800466B1D /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
 		4683E7B21D4F2FF000E65CD4 /* SHA1Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHA1Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683E7B61D4F2FF000E65CD4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4683E7B81D4F2FF000E65CD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +69,15 @@
 			path = "crc32-master";
 			sourceTree = "<group>";
 		};
+		461491391D51F29B00466B1D /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				461491361D51F1AF00466B1D /* RSA.h */,
+				461491371D51F1AF00466B1D /* RSA.m */,
+			);
+			name = RSA;
+			sourceTree = "<group>";
+		};
 		4683E7A91D4F2FF000E65CD4 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +97,9 @@
 		4683E7B41D4F2FF000E65CD4 /* SHA1Test */ = {
 			isa = PBXGroup;
 			children = (
+				4614913A1D51F2C800466B1D /* rsa_private_key.pem */,
+				4614913B1D51F2C800466B1D /* rsa_public_key.pem */,
+				461491391D51F29B00466B1D /* RSA */,
 				4614906D1D50996100466B1D /* crc32-master */,
 				4683E7CF1D4F310100E65CD4 /* 1.png */,
 				4683E7CC1D4F300700E65CD4 /* sha1.c */,
@@ -166,9 +185,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				461490721D50996100466B1D /* .gitignore in Resources */,
+				4614913C1D51F2C800466B1D /* rsa_private_key.pem in Resources */,
 				4683E7C51D4F2FF000E65CD4 /* LaunchScreen.storyboard in Resources */,
 				4683E7D01D4F310100E65CD4 /* 1.png in Resources */,
 				4683E7C21D4F2FF000E65CD4 /* Assets.xcassets in Resources */,
+				4614913D1D51F2C800466B1D /* rsa_public_key.pem in Resources */,
 				4683E7C01D4F2FF000E65CD4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461491381D51F1AF00466B1D /* RSA.m in Sources */,
 				4683E7CE1D4F300700E65CD4 /* sha1.c in Sources */,
 				4683E7BD1D4F2FF000E65CD4 /* ViewController.m in Sources */,
 				4683E7BA1D4F2FF000E65CD4 /* AppDelegate.m in Sources */,
