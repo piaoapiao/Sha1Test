@@ -19,11 +19,9 @@
 		4683E7C21D4F2FF000E65CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4683E7C11D4F2FF000E65CD4 /* Assets.xcassets */; };
 		4683E7C51D4F2FF000E65CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683E7C31D4F2FF000E65CD4 /* LaunchScreen.storyboard */; };
 		4683E7CE1D4F300700E65CD4 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 4683E7CC1D4F300700E65CD4 /* sha1.c */; };
-		4683E7D01D4F310100E65CD4 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4683E7CF1D4F310100E65CD4 /* 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4614906E1D50996100466B1D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4614906F1D50996100466B1D /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc32.c; sourceTree = "<group>"; };
 		461490701D50996100466B1D /* crc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc32.h; sourceTree = "<group>"; };
 		461490751D518C0C00466B1D /* NSdata+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSdata+Encryption.h"; sourceTree = "<group>"; };
@@ -44,7 +42,6 @@
 		4683E7C61D4F2FF000E65CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4683E7CC1D4F300700E65CD4 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
 		4683E7CD1D4F300700E65CD4 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
-		4683E7CF1D4F310100E65CD4 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +58,6 @@
 		4614906D1D50996100466B1D /* crc32-master */ = {
 			isa = PBXGroup;
 			children = (
-				4614906E1D50996100466B1D /* .gitignore */,
 				4614906F1D50996100466B1D /* crc32.c */,
 				461490701D50996100466B1D /* crc32.h */,
 			);
@@ -100,7 +96,6 @@
 				4614913B1D51F2C800466B1D /* rsa_public_key.pem */,
 				461491391D51F29B00466B1D /* RSA */,
 				4614906D1D50996100466B1D /* crc32-master */,
-				4683E7CF1D4F310100E65CD4 /* 1.png */,
 				4683E7CC1D4F300700E65CD4 /* sha1.c */,
 				4683E7CD1D4F300700E65CD4 /* sha1.h */,
 				4683E7B81D4F2FF000E65CD4 /* AppDelegate.h */,
@@ -186,7 +181,6 @@
 			files = (
 				4614913C1D51F2C800466B1D /* rsa_private_key.pem in Resources */,
 				4683E7C51D4F2FF000E65CD4 /* LaunchScreen.storyboard in Resources */,
-				4683E7D01D4F310100E65CD4 /* 1.png in Resources */,
 				4683E7C21D4F2FF000E65CD4 /* Assets.xcassets in Resources */,
 				4614913D1D51F2C800466B1D /* rsa_public_key.pem in Resources */,
 				4683E7C01D4F2FF000E65CD4 /* Main.storyboard in Resources */,
