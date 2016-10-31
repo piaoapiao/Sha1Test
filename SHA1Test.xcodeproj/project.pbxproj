@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		461490721D50996100466B1D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4614906E1D50996100466B1D /* .gitignore */; };
 		461490731D50996100466B1D /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 4614906F1D50996100466B1D /* crc32.c */; };
 		461490771D518C0C00466B1D /* NSdata+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 461490761D518C0C00466B1D /* NSdata+Encryption.m */; };
 		461491381D51F1AF00466B1D /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 461491371D51F1AF00466B1D /* RSA.m */; };
@@ -185,7 +184,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461490721D50996100466B1D /* .gitignore in Resources */,
 				4614913C1D51F2C800466B1D /* rsa_private_key.pem in Resources */,
 				4683E7C51D4F2FF000E65CD4 /* LaunchScreen.storyboard in Resources */,
 				4683E7D01D4F310100E65CD4 /* 1.png in Resources */,
